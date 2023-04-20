@@ -1,13 +1,83 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+*,
+*::after,
+*::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+:root{
+    --body-color : #f4f4f4;
+    --primary-color : #db868b;
+    --secondary-color : #417584;
+    --box-shadow : rgba(0,0,0,0.25);
+}
+
+html{
+    font-size: 62.5%;
+}
+
+body{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: var(--body-color);
+    color: var(--secondary-color);
+}
+
+h1{
+    font-size: 2.4rem;
+    color: var(--primary-color);
+}
+
+h2{
+    font-size: 2rem;
+    color: var(--primary-color);
+}
+
+h3{
+    font-size: 1.6rem;
+    color: var(--primary-color);
+}
+
+span{
+    font-size: 1.4rem;
+    color: var(--primary-color);
+}
+
+@media screen and (min-width:768px) {
+    h1{
+        font-size: 2.6rem;
+    }
+    
+    h2{
+        font-size: 2.2rem;
+    }
+    
+    h3{
+        font-size: 1.8rem;
+    }
+    
+    span{
+        font-size: 1.6rem;
+    }
+}
+
+
+@media screen and (min-width:1024px) {
+    h1{
+        font-size: 3.2rem;
+    }
+    
+    h2{
+        font-size: 2.6rem;
+    }
+     
+    h3{
+        font-size: 2rem;
+    }
+
+    span{
+        font-size: 1.8rem;
+    }
 }
