@@ -5,6 +5,132 @@
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding: 0 15px;
+}
+
+@media screen and (min-width:768px) {
+   .app{
+    padding: 0 ;    
+   } 
+}
+
+/* form  */
+
+.form{
+    margin-top: 100px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    gap: 20px;
+    background-color: var(--secondary-color);
+    box-shadow: 0px 5px 15px var(--box-shadow-color);
+    border-radius: 6px;
+}
+
+.form__section{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+    padding: 15px;
+}
+
+@media screen and (min-width:768px) {
+    .form{
+        width: 40rem;
+        margin-bottom: 40px;
+    }
+
+    .form__section{
+        padding: 20px;
+    }
 }
 
 
+@media screen and (min-width:1024px) {
+    .form{
+        width: 50rem;
+        padding: 0;
+        margin-bottom: 40px;
+    }
+
+    .form__section{
+        gap: 15px;
+    }
+}
+
+/* header */
+
+.form__header{
+    width: 100%;
+    text-align: center;
+    background-color: var(--primary-color);
+    border-radius: 6px 6px 0 0;
+    padding: 10px 0;
+}
+
+.form__header h2{
+    color: var(--secondary-color);
+}
+
+/* inputs */
+
+.form__input{
+    outline: none;
+    border: none;
+    border-radius: 4px ;
+    padding: 15px 10px;
+    width: 100%;
+    color: var(--primary-color);
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    transition: all 0.2s ease-in;
+}
+
+.form__input::placeholder{
+    color: var(--primary-color);
+}
+
+.form__input:focus::placeholder{
+    color: var(--primary-color);
+}
+
+/* title */
+
+.form__title{
+    font-weight: bold;
+    font-size:1.8rem;
+    color: var(--primary-color);
+}
+
+@media screen and (min-width:768px) {
+    .form__title{
+        font-size:2rem;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .form__title{
+        font-size:2.2rem;
+    }
+}
+
+/* btn */
+
+.btn{
+    font-size: 1.6rem !important;
+    font-weight: bold;
+    width: 100%;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    border-radius: 0 0 6px 6px;
+    padding: 15px 0;
+    font-size: 1.4rem;
+    transition: all 0.2s ease-in;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
