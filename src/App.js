@@ -1,16 +1,14 @@
-import React, { useState } from "react";
 import "./App.css";
+import { useFormik } from "formik";
 
 const App = () => {
-   const [user, setUser] = useState({ name: "", email: "", password: "" });
-
-   const changeHandler = ({ target }) => {
-      setUser({ ...user, [target.name]: target.value });
-   };
+   const formik = useFormik({
+      initialValues: { name: "", email: "", password: "" },
+   });
 
    const submitHandler = (e) => {
       e.preventDefault();
-      setUser({ name: "", email: "", password: "" });
+      // setUser({ name: "", email: "", password: "" });
    };
 
    return (
@@ -30,8 +28,8 @@ const App = () => {
                   placeholder="name..."
                   type="text"
                   className="form__input"
-                  value={user.name}
-                  onChange={changeHandler}
+                  value={formik.values.name}
+                  onChange={formik.handleChange}
                />
             </div>
             {/* email section */}
@@ -42,8 +40,8 @@ const App = () => {
                   placeholder="email..."
                   type="text"
                   className="form__input"
-                  value={user.email}
-                  onChange={changeHandler}
+                  value={formik.values.email}
+                  onChange={formik.handleChange}
                />
             </div>
             {/* password section */}
@@ -54,8 +52,8 @@ const App = () => {
                   placeholder="password..."
                   type="text"
                   className="form__input"
-                  value={user.password}
-                  onChange={changeHandler}
+                  value={formik.values.password}
+                  onChange={formik.handleChange}
                />
             </div>
             {/* submit btn */}
