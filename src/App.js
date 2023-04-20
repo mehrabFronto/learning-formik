@@ -1,21 +1,21 @@
 import "./App.css";
 import { useFormik } from "formik";
 
+const initialValues = { name: "", email: "", password: "" };
+
+const onSubmit = (values) => console.log(values);
+
 const App = () => {
    const formik = useFormik({
-      initialValues: { name: "", email: "", password: "" },
+      initialValues,
+      onSubmit,
    });
-
-   const submitHandler = (e) => {
-      e.preventDefault();
-      // setUser({ name: "", email: "", password: "" });
-   };
 
    return (
       <div className="app">
          <form
             className="form"
-            onSubmit={submitHandler}>
+            onSubmit={formik.handleSubmit}>
             {/* header */}
             <div className="form__header">
                <h2>Log In Form</h2>
