@@ -8,10 +8,17 @@
     text-decoration: none;
 }
 
+/* 
+   --primary-color : rgb(81, 255, 148);
+    --secondary-color : #00270d;
+*/
+
+
 :root{
     --body-color : #f4f4f4;
-    --primary-color : #db868b;
-    --secondary-color : #417584;
+    --primary-color : rgb(0, 0, 0);
+    --secondary-color : #ffffff;
+    --form-color : rgb(157, 255, 255);
     --box-shadow : rgba(0,0,0,0.25);
 }
 
@@ -20,7 +27,7 @@ html{
 }
 
 body{
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Kalameh";
     background-color: var(--body-color);
     color: var(--secondary-color);
 }
@@ -36,8 +43,9 @@ h2{
 }
 
 h3{
-    font-size: 1.4rem;
-    color: var(--primary-color);
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: rgb(255, 0, 0)
 }
 
 span{
@@ -55,7 +63,7 @@ span{
     }
     
     h3{
-        font-size: 1.6rem;
+        font-size: 1.4rem;
     }
     
     span{
@@ -70,11 +78,11 @@ span{
     }
     
     h2{
-        font-size: 2.6rem;
+        font-size: 2.5rem;
     }
      
     h3{
-        font-size: 1.8rem;
+        font-size: 1.6rem;
     }
 
     span{

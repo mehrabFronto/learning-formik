@@ -34,6 +34,7 @@ const App = () => {
       initialValues,
       onSubmit,
       validationSchema,
+      validateOnMount: true,
    });
 
    return (
@@ -49,7 +50,7 @@ const App = () => {
             <div className="form__body">
                {/* name section */}
                <div className="form__control">
-                  <label className="form__title">name :</label>
+                  <label className="form__title">Name :</label>
                   <input
                      name="name"
                      placeholder="name..."
@@ -63,7 +64,7 @@ const App = () => {
                </div>
                {/* email section */}
                <div className="form__control">
-                  <label className="form__title">email :</label>
+                  <label className="form__title">E-mail :</label>
                   <input
                      name="email"
                      placeholder="email..."
@@ -77,11 +78,11 @@ const App = () => {
                </div>
                {/* phone number section */}
                <div className="form__control">
-                  <label className="form__title">phone number :</label>
+                  <label className="form__title">Phone Number :</label>
                   <input
                      name="phoneNumber"
                      placeholder="phone number..."
-                     type="number"
+                     type="text"
                      className="form__input"
                      {...formik.getFieldProps("phoneNumber")}
                   />
@@ -91,7 +92,7 @@ const App = () => {
                </div>
                {/* password section */}
                <div className="form__control">
-                  <label className="form__title">password :</label>
+                  <label className="form__title">Password :</label>
                   <input
                      name="password"
                      placeholder="password..."
@@ -105,7 +106,7 @@ const App = () => {
                </div>
                {/* re-password section */}
                <div className="form__control">
-                  <label className="form__title">re-password :</label>
+                  <label className="form__title">Confirm Password :</label>
                   <input
                      name="rePassword"
                      placeholder="re-password..."
@@ -120,7 +121,8 @@ const App = () => {
                {/* submit btn */}
                <button
                   className="btn"
-                  type="submit">
+                  type="submit"
+                  disabled={!formik.isValid}>
                   Sign Up
                </button>
             </div>
