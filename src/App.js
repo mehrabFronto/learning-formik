@@ -1,31 +1,27 @@
 import "./App.css";
 import { useFormik } from "formik";
+import * as Yup from "yup";
 
 const initialValues = { name: "", email: "", password: "" };
 
 const onSubmit = (values) => console.log(values);
 
-const validate = (values) => {
-   let errors = {};
-
-   if (!values.name) {
-      errors.name = "name is requierd";
-   }
-   if (!values.email) {
-      errors.email = "email is requierd";
-   }
-   if (!values.password) {
-      errors.password = "password is requierd";
-   }
-
-   return errors;
-};
+const validationSchema = Yup.object({
+   name: Yup.string().required("Name is requierd").min(6),
+   email: Yup.string()
+      .email("invalid email format")
+      .required("Email is requierd"),
+   password: Yup.string()
+      .required("Password is required")
+      .min(8, "Password is too short - should be 8 chars minimum.")
+      .matches(/[a-zA-Z]/, "Password can only contain Latin letters."),
+});
 
 const App = () => {
    const formik = useFormik({
       initialValues,
       onSubmit,
-      validate,
+      validationSchema,
    });
 
    return (
