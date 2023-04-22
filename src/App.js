@@ -8,25 +8,27 @@ const initialValues = {
    password: "",
    rePassword: "",
    phoneNumber: "",
+   gender: "",
 };
 
 const onSubmit = (values) => console.log(values);
 
 const validationSchema = Yup.object({
-   name: Yup.string().required("Name is required").min(6),
+   name: Yup.string().min(6).required("Name is required"),
    email: Yup.string()
       .email("Invalid email format")
       .required("Email is required"),
    password: Yup.string()
-      .required("Password is required")
       .min(8, "Password is too short - should be 8 chars minimum.")
-      .matches(/[a-zA-Z]/, "Password can only contain Latin letters."),
+      .matches(/[a-zA-Z]/, "Password can only contain Latin letters.")
+      .required("Password is required"),
    rePassword: Yup.string()
-      .required("re-password is required")
-      .oneOf([Yup.ref("password"), null], "re-passwords must match"),
+      .oneOf([Yup.ref("password"), null], "re-passwords must match")
+      .required("re-password is required"),
    phoneNumber: Yup.string()
-      .required("Phone number is required")
-      .matches(/^[0-9]{11}$/, "Invalid phone number"),
+      .matches(/^[0-9]{11}$/, "Invalid phone number")
+      .required("Phone number is required"),
+   gender: Yup.string().required("Gender is required"),
 });
 
 const App = () => {
@@ -50,8 +52,13 @@ const App = () => {
             <div className="form__body">
                {/* name section */}
                <div className="form__control">
-                  <label className="form__title">Name :</label>
+                  <label
+                     className="form__title"
+                     htmlFor="name">
+                     Name :
+                  </label>
                   <input
+                     id="name"
                      name="name"
                      placeholder="name..."
                      type="text"
@@ -64,8 +71,13 @@ const App = () => {
                </div>
                {/* email section */}
                <div className="form__control">
-                  <label className="form__title">E-mail :</label>
+                  <label
+                     className="form__title"
+                     htmlFor="e-mail">
+                     E-mail :
+                  </label>
                   <input
+                     id="e-mail"
                      name="email"
                      placeholder="email..."
                      type="text"
@@ -78,8 +90,13 @@ const App = () => {
                </div>
                {/* phone number section */}
                <div className="form__control">
-                  <label className="form__title">Phone Number :</label>
+                  <label
+                     className="form__title"
+                     htmlFor="phoneNumber">
+                     Phone Number :
+                  </label>
                   <input
+                     id="phoneNumber"
                      name="phoneNumber"
                      placeholder="phone number..."
                      type="text"
@@ -92,8 +109,13 @@ const App = () => {
                </div>
                {/* password section */}
                <div className="form__control">
-                  <label className="form__title">Password :</label>
+                  <label
+                     className="form__title"
+                     htmlFor="password">
+                     Password :
+                  </label>
                   <input
+                     id="password"
                      name="password"
                      placeholder="password..."
                      type="password"
@@ -104,18 +126,67 @@ const App = () => {
                      <h3>{formik.errors.password}</h3>
                   )}
                </div>
-               {/* re-password section */}
+               {/* confirm section */}
                <div className="form__control">
-                  <label className="form__title">Confirm Password :</label>
+                  <label
+                     className="form__title"
+                     htmlFor="confirmPassword">
+                     Confirm Password :
+                  </label>
                   <input
+                     id="confirmPassword"
                      name="rePassword"
-                     placeholder="re-password..."
+                     placeholder="confirm password..."
                      type="password"
                      className="form__input"
                      {...formik.getFieldProps("rePassword")}
                   />
                   {formik.errors.rePassword && formik.touched.rePassword && (
                      <h3>{formik.errors.rePassword}</h3>
+                  )}
+               </div>
+               {/* gender section */}
+               <div className="form__control">
+                  {/* title */}
+                  <label className="form__title">Gender</label>
+                  {/* radioes */}
+                  <div className="form__radio">
+                     {/* male radio */}
+                     <div className="form__radio__control">
+                        <input
+                           name="gender"
+                           type="radio"
+                           value="0"
+                           id="0"
+                           onChange={formik.handleChange}
+                           checked={formik.values.gender === "0"}
+                        />
+                        <label
+                           className="form__title"
+                           htmlFor="0">
+                           Male
+                        </label>
+                     </div>
+                     {/* female radio */}
+                     <div className="form__radio__control">
+                        <input
+                           name="gender"
+                           type="radio"
+                           value="1"
+                           id="1"
+                           onChange={formik.handleChange}
+                           checked={formik.values.gender === "1"}
+                        />
+                        <label
+                           className="form__title"
+                           htmlFor="1">
+                           Female
+                        </label>
+                     </div>
+                  </div>
+                  {/* validation message */}
+                  {formik.errors.gender && formik.touched.gender && (
+                     <h3>{formik.errors.gender}</h3>
                   )}
                </div>
                {/* submit btn */}
