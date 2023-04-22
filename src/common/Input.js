@@ -3,7 +3,7 @@ const Input = ({ label, name, type = "text", placeholder, formik }) => {
       <div className="form__control">
          <label
             className="form__title"
-            htmlFor="name">
+            htmlFor={name}>
             {label}
          </label>
          <input

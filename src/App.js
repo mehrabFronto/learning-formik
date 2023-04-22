@@ -2,6 +2,7 @@ import "./App.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import Input from "./common/Input";
+import Radio from "./common/Radio";
 
 const initialValues = {
    name: "",
@@ -89,49 +90,10 @@ const App = () => {
                   type="password"
                />
                {/* gender section */}
-               <div className="form__control">
-                  {/* title */}
-                  <label className="form__title">Gender</label>
-                  {/* radioes */}
-                  <div className="form__radio">
-                     {/* male radio */}
-                     <div className="form__radio__control">
-                        <input
-                           name="gender"
-                           type="radio"
-                           value="0"
-                           id="0"
-                           onChange={formik.handleChange}
-                           checked={formik.values.gender === "0"}
-                        />
-                        <label
-                           className="form__title"
-                           htmlFor="0">
-                           Male
-                        </label>
-                     </div>
-                     {/* female radio */}
-                     <div className="form__radio__control">
-                        <input
-                           name="gender"
-                           type="radio"
-                           value="1"
-                           id="1"
-                           onChange={formik.handleChange}
-                           checked={formik.values.gender === "1"}
-                        />
-                        <label
-                           className="form__title"
-                           htmlFor="1">
-                           Female
-                        </label>
-                     </div>
-                  </div>
-                  {/* validation message */}
-                  {formik.errors.gender && formik.touched.gender && (
-                     <h3>{formik.errors.gender}</h3>
-                  )}
-               </div>
+               <Radio
+                  name="gender"
+                  formik={formik}
+               />
                {/* submit btn */}
                <button
                   className="btn"
