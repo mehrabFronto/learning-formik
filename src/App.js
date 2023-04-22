@@ -1,6 +1,7 @@
 import "./App.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import Input from "./common/Input";
 
 const initialValues = {
    name: "",
@@ -51,100 +52,42 @@ const App = () => {
             {/* body */}
             <div className="form__body">
                {/* name section */}
-               <div className="form__control">
-                  <label
-                     className="form__title"
-                     htmlFor="name">
-                     Name :
-                  </label>
-                  <input
-                     id="name"
-                     name="name"
-                     placeholder="name..."
-                     type="text"
-                     className="form__input"
-                     {...formik.getFieldProps("name")}
-                  />
-                  {formik.errors.name && formik.touched.name && (
-                     <h3>{formik.errors.name}</h3>
-                  )}
-               </div>
+               <Input
+                  label="Name"
+                  name="name"
+                  formik={formik}
+                  placeholder="name..."
+               />
                {/* email section */}
-               <div className="form__control">
-                  <label
-                     className="form__title"
-                     htmlFor="e-mail">
-                     E-mail :
-                  </label>
-                  <input
-                     id="e-mail"
-                     name="email"
-                     placeholder="email..."
-                     type="text"
-                     className="form__input"
-                     {...formik.getFieldProps("email")}
-                  />
-                  {formik.errors.email && formik.touched.email && (
-                     <h3>{formik.errors.email}</h3>
-                  )}
-               </div>
+               <Input
+                  label="E-mail"
+                  name="email"
+                  formik={formik}
+                  placeholder="email..."
+               />
                {/* phone number section */}
-               <div className="form__control">
-                  <label
-                     className="form__title"
-                     htmlFor="phoneNumber">
-                     Phone Number :
-                  </label>
-                  <input
-                     id="phoneNumber"
-                     name="phoneNumber"
-                     placeholder="phone number..."
-                     type="text"
-                     className="form__input"
-                     {...formik.getFieldProps("phoneNumber")}
-                  />
-                  {formik.errors.phoneNumber && formik.touched.phoneNumber && (
-                     <h3>{formik.errors.phoneNumber}</h3>
-                  )}
-               </div>
+               <Input
+                  label="Phone Number"
+                  name="phoneNumber"
+                  formik={formik}
+                  placeholder="phone number..."
+               />
                {/* password section */}
-               <div className="form__control">
-                  <label
-                     className="form__title"
-                     htmlFor="password">
-                     Password :
-                  </label>
-                  <input
-                     id="password"
-                     name="password"
-                     placeholder="password..."
-                     type="password"
-                     className="form__input"
-                     {...formik.getFieldProps("password")}
-                  />
-                  {formik.errors.password && formik.touched.password && (
-                     <h3>{formik.errors.password}</h3>
-                  )}
-               </div>
+               <Input
+                  label="Password"
+                  name="password"
+                  formik={formik}
+                  placeholder="password..."
+                  type="password"
+               />
                {/* confirm section */}
-               <div className="form__control">
-                  <label
-                     className="form__title"
-                     htmlFor="confirmPassword">
-                     Confirm Password :
-                  </label>
-                  <input
-                     id="confirmPassword"
-                     name="rePassword"
-                     placeholder="confirm password..."
-                     type="password"
-                     className="form__input"
-                     {...formik.getFieldProps("rePassword")}
-                  />
-                  {formik.errors.rePassword && formik.touched.rePassword && (
-                     <h3>{formik.errors.rePassword}</h3>
-                  )}
-               </div>
+               <Input
+                  label="Confirm Password"
+                  name="rePassword"
+                  formik={formik}
+                  placeholder="confirm password..."
+                  type="password"
+               />
                {/* gender section */}
                <div className="form__control">
                   {/* title */}
