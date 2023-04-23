@@ -5,6 +5,7 @@ import Input from "./common/Input";
 import Radio from "./common/Radio";
 import SelectComponent from "./common/SelectComponent";
 import CheckBox from "./common/CheckBox";
+import axios from "axios";
 
 const initialValues = {
    name: "",
@@ -18,7 +19,7 @@ const initialValues = {
    terms: false,
 };
 
-const onSubmit = (values) => console.log(values);
+const onSubmit = (values) => axios.post("http://localhost:3001/users", values);
 
 const validationSchema = Yup.object({
    name: Yup.string().min(6).required("Name is required"),

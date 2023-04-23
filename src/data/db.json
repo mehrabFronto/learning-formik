@@ -1,0 +1,19 @@
+{
+  "users": [
+    {
+      "name": "mehrab",
+      "email": "mehrabd20@gmail.com",
+      "password": "1234567a",
+      "confirmPassword": "1234567a",
+      "phoneNumber": "09916063163",
+      "gender": "0",
+      "nationality": "IR",
+      "intrests": [
+        "React.js",
+        "Vue.js"
+      ],
+      "terms": true,
+      "id": 1
+    }
+  ]
+}
