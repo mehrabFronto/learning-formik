@@ -131,24 +131,28 @@
 
 /* radio */
 
-.form__radio{
+.form__radio,
+.form__checkBox{
     display: flex;
     align-items: center;
     gap: 20px;
     justify-content: center;
 }
 
-.form__radio__control {
+.form__radio__control ,
+.form__checkBox__control {
     display: flex;
     align-items: center;
 }
 
-.form__radio__control label {
+.form__radio__control label ,
+.form__checkBox__control label {
     cursor: pointer;
     margin: 3px 0 0 5px;
 }
 
-.form__radio__control input {
+.form__radio__control input ,
+.form__checkBox__control input {
     width: 15px;
     height: 15px;
     cursor: pointer;

@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import Input from "./common/Input";
 import Radio from "./common/Radio";
 import SelectComponent from "./common/SelectComponent";
+import CheckBox from "./common/CheckBox";
 
 const initialValues = {
    name: "",
@@ -13,6 +14,8 @@ const initialValues = {
    phoneNumber: "",
    gender: "",
    nationality: "",
+   intrests: [],
+   terms: false,
 };
 
 const onSubmit = (values) => console.log(values);
@@ -34,6 +37,10 @@ const validationSchema = Yup.object({
       .required("Phone number is required"),
    gender: Yup.string().required("Gender is required"),
    nationality: Yup.string().required("select nationality"),
+   intrests: Yup.array().min(1).required("select one intrests at least"),
+   terms: Yup.boolean()
+      .oneOf([true], "You must accept the terms and conditions")
+      .required("You must accept the terms and conditions"),
 });
 
 const App = () => {
@@ -102,6 +109,28 @@ const App = () => {
                   formik={formik}
                   name="nationality"
                />
+               {/* intrests section */}
+               <CheckBox
+                  name="intrests"
+                  formik={formik}
+               />
+               {/* terms section */}
+               <div className="form__checkBox__control">
+                  <input
+                     type="checkbox"
+                     id="terms"
+                     name="terms"
+                     value={true}
+                     onChange={formik.handleChange}
+                     checked={formik.values.terms}
+                  />
+                  <label
+                     htmlFor="terms"
+                     className="form__title">
+                     Terms And Conditions
+                  </label>
+               </div>
+               {formik.errors.terms && <h3>{formik.errors.terms}</h3>}
                {/* submit btn */}
                <button
                   className="btn"
