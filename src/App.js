@@ -3,14 +3,16 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import Input from "./common/Input";
 import Radio from "./common/Radio";
+import SelectComponent from "./common/SelectComponent";
 
 const initialValues = {
    name: "",
    email: "",
    password: "",
-   rePassword: "",
+   confirmPassword: "",
    phoneNumber: "",
    gender: "",
+   nationality: "",
 };
 
 const onSubmit = (values) => console.log(values);
@@ -24,13 +26,14 @@ const validationSchema = Yup.object({
       .min(8, "Password is too short - should be 8 chars minimum.")
       .matches(/[a-zA-Z]/, "Password can only contain Latin letters.")
       .required("Password is required"),
-   rePassword: Yup.string()
+   confirmPassword: Yup.string()
       .oneOf([Yup.ref("password"), null], "re-passwords must match")
       .required("re-password is required"),
    phoneNumber: Yup.string()
       .matches(/^[0-9]{11}$/, "Invalid phone number")
       .required("Phone number is required"),
    gender: Yup.string().required("Gender is required"),
+   nationality: Yup.string().required("select nationality"),
 });
 
 const App = () => {
@@ -84,7 +87,7 @@ const App = () => {
                {/* confirm section */}
                <Input
                   label="Confirm Password"
-                  name="rePassword"
+                  name="confirmPassword"
                   formik={formik}
                   placeholder="confirm password..."
                   type="password"
@@ -93,6 +96,11 @@ const App = () => {
                <Radio
                   name="gender"
                   formik={formik}
+               />
+               {/* nationality section */}
+               <SelectComponent
+                  formik={formik}
+                  name="nationality"
                />
                {/* submit btn */}
                <button
